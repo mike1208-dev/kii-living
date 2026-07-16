@@ -99,7 +99,6 @@ export const businesses: Business[] = [
 export const nav = [
   { label: '事業内容', href: '/' },
   { label: '会社概要', href: '/profile' },
-  { label: 'お問い合わせ', href: '/contact-us' },
 ] as const;
 
 // 「無料相談」ボタンのリンク先（お問い合わせと共通）

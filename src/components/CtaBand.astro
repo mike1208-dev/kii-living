@@ -5,21 +5,14 @@ import { company, consultHref } from '../data/site';
 <section class="py-20 md:py-28">
   <div class="mx-auto max-w-6xl px-5 md:px-8">
     <div
-      class="reveal relative overflow-hidden rounded-3xl px-6 py-14 md:px-16 md:py-20 text-center"
-      style="background-color: var(--navy); color: #ffffff;"
+      class="reveal relative overflow-hidden rounded-3xl px-6 py-14 md:px-16 md:py-20 text-center border"
+      style="background-color: #eceff4; border-color: var(--border);"
     >
-      <!-- 装飾（オレンジのグロー） -->
-      <div
-        class="absolute inset-0"
-        aria-hidden="true"
-        style="background: radial-gradient(70% 120% at 100% 0%, rgba(233,120,28,0.35), transparent 55%), radial-gradient(60% 120% at 0% 100%, rgba(233,120,28,0.18), transparent 55%);"
-      >
-      </div>
       <div class="relative">
-        <h2 class="heading" style="color:#ffffff; font-size: clamp(1.6rem, 4vw, 2.5rem);">
+        <h2 class="heading" style="color: var(--navy); font-size: clamp(1.6rem, 4vw, 2.5rem);">
           住まいのこと、まずはお気軽にご相談を
         </h2>
-        <p class="mt-5 max-w-xl mx-auto text-base md:text-lg" style="color: rgba(255,255,255,0.82);">
+        <p class="mt-5 max-w-xl mx-auto text-base md:text-lg" style="color: var(--text-muted);">
           ご相談は無料です。売却・購入・リフォーム・住宅ローンまで、専門スタッフが丁寧にお応えします。
         </p>
         <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -30,13 +23,13 @@ import { company, consultHref } from '../data/site';
           >
             無料相談・お問い合わせ
           </a>
-          <a
+          <!-- <a
             href={company.telHref}
-            class="w-full sm:w-auto rounded-full px-8 py-4 text-base font-semibold border-2 transition-transform hover:-translate-y-0.5"
-            style="border-color: rgba(255,255,255,0.4); color: #ffffff;"
+            class="w-full sm:w-auto rounded-full px-8 py-4 text-base font-semibold border-2 bg-white transition-transform hover:-translate-y-0.5"
+            style="border-color: var(--navy); color: var(--navy);"
           >
             お電話：{company.tel}
-          </a>
+          </a> -->
         </div>
       </div>
     </div>
