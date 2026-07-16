@@ -1,0 +1,127 @@
+---
+import { company, nav, consultHref } from '../data/site';
+
+// アクティブ判定（トップは完全一致、それ以外は前方一致）
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+---
+
+<header
+  id="site-header"
+  class="fixed top-0 inset-x-0 z-50 border-b transition-all duration-300"
+  style="background-color: rgba(255,255,255,0.85); border-color: var(--border); backdrop-filter: saturate(160%) blur(12px);"
+>
+  <div class="mx-auto max-w-6xl px-5 md:px-8">
+    <div class="flex h-16 md:h-20 items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5" aria-label={`${company.name} ホーム`}>
+        <img src="/logo-mark.svg" alt="" width="34" height="34" class="w-8 h-8 md:w-9 md:h-9" />
+        <span class="text-lg md:text-xl font-bold tracking-wide" style="color: var(--text);">
+          Kii&nbsp;Living
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-9" aria-label="メインナビゲーション">
+        {
+          nav.map((item) => (
+            <a
+              href={item.href}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+              class="relative text-sm font-medium tracking-wide transition-colors hover:opacity-70"
+              style={`color: ${isActive(item.href) ? 'var(--accent)' : 'var(--text-muted)'};`}
+            >
+              {item.label}
+              {isActive(item.href) && (
+                <span
+                  class="absolute -bottom-2 left-0 right-0 h-0.5 rounded-full"
+                  style="background-color: var(--accent);"
+                />
+              )}
+            </a>
+          ))
+        }
+        <a
+          href={consultHref}
+          class="rounded-full px-5 py-2.5 text-sm font-semibold transition-transform hover:-translate-y-0.5"
+          style="background-color: var(--accent); color: var(--accent-contrast);"
+        >
+          無料相談
+        </a>
+      </nav>
+
+      <!-- モバイル：メニュー開閉 -->
+      <button
+        id="menu-toggle"
+        class="md:hidden inline-flex items-center justify-center w-10 h-10 -mr-2"
+        aria-label="メニューを開く"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color: var(--text);">
+          <line x1="4" y1="8" x2="20" y2="8" />
+          <line x1="4" y1="16" x2="20" y2="16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- モバイルメニュー -->
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden border-t"
+    style="border-color: var(--border); background-color: var(--bg);"
+  >
+    <nav class="mx-auto max-w-6xl px-5 py-4 flex flex-col" aria-label="モバイルナビゲーション">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            aria-current={isActive(item.href) ? 'page' : undefined}
+            class="mobile-link py-4 text-base font-medium border-b"
+            style={`color: ${isActive(item.href) ? 'var(--accent)' : 'var(--text)'}; border-color: var(--border);`}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <a
+        href={consultHref}
+        class="mobile-link mt-4 rounded-full px-5 py-3.5 text-center text-base font-semibold"
+        style="background-color: var(--accent); color: var(--accent-contrast);"
+      >
+        無料相談
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const icon = document.getElementById('menu-icon');
+  const header = document.getElementById('site-header');
+
+  const closeMenu = () => {
+    menu?.classList.add('hidden');
+    toggle?.setAttribute('aria-expanded', 'false');
+    if (icon) icon.innerHTML = '<line x1="4" y1="8" x2="20" y2="8" /><line x1="4" y1="16" x2="20" y2="16" />';
+  };
+  const openMenu = () => {
+    menu?.classList.remove('hidden');
+    toggle?.setAttribute('aria-expanded', 'true');
+    if (icon) icon.innerHTML = '<line x1="6" y1="6" x2="18" y2="18" /><line x1="6" y1="18" x2="18" y2="6" />';
+  };
+
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    open ? closeMenu() : openMenu();
+  });
+  document.querySelectorAll('.mobile-link').forEach((a) => a.addEventListener('click', closeMenu));
+
+  // スクロールで影を付与（浮遊感）
+  const onScroll = () => {
+    if (!header) return;
+    header.style.boxShadow = window.scrollY > 8 ? '0 1px 20px rgba(22,33,27,0.06)' : 'none';
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+</script>

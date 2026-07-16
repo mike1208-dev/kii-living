@@ -1,0 +1,86 @@
+---
+import { businesses } from '../data/site';
+
+interface Props {
+  showHeading?: boolean;
+}
+const { showHeading = true } = Astro.props;
+---
+
+<section id="services" class="py-24 md:py-32 scroll-mt-20">
+  <div class="mx-auto max-w-6xl px-5 md:px-8">
+    {
+      showHeading && (
+        <div class="reveal max-w-2xl mb-16 md:mb-20">
+          <p class="text-xs md:text-sm tracking-[0.3em] mb-4 font-semibold" style="color: var(--accent);">
+            SERVICES
+          </p>
+          <h2 class="heading" style="color: var(--text); font-size: clamp(1.75rem, 4.5vw, 2.75rem);">
+            4つの事業で、<br class="hidden sm:block" />住まいを総合サポート
+          </h2>
+          <p class="mt-6 text-base md:text-lg" style="color: var(--text-muted);">
+            購入から住まいづくり、資金計画まで。それぞれの専門性を活かしながら、ひとつの窓口でお客様をお支えします。
+          </p>
+        </div>
+      )
+    }
+
+    <div class="grid gap-6 lg:gap-8 md:grid-cols-2">
+      {
+        businesses.map((b, i) => (
+          <article
+            class="reveal group relative flex flex-col rounded-2xl border overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+            style={`background-color: var(--bg-elevated); border-color: var(--border); transition-delay: ${i * 70}ms;`}
+          >
+            <div class="overflow-hidden" style="aspect-ratio: 4 / 3;">
+              <img
+                src={b.image}
+                alt={`${b.title}のイメージ`}
+                width="800"
+                height="600"
+                loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+
+            <div class="flex flex-col flex-1 p-8 md:p-10">
+            <div class="flex items-start justify-between mb-6">
+              <span class="text-4xl md:text-5xl font-black leading-none" style="color: var(--accent-soft);">
+                {b.no}
+              </span>
+              <span class="text-[11px] md:text-xs tracking-[0.2em] mt-2 font-semibold" style="color: var(--text-muted);">
+                {b.subtitle}
+              </span>
+            </div>
+
+            <h3 class="text-xl md:text-2xl font-bold mb-4" style="color: var(--text);">
+              {b.title}
+            </h3>
+            <p class="text-sm md:text-base mb-6 flex-1" style="color: var(--text-muted);">
+              {b.description}
+            </p>
+
+            <ul class="flex flex-col gap-2.5">
+              {b.points.map((p) => (
+                <li class="flex items-start gap-2.5 text-sm" style="color: var(--text);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="mt-1 shrink-0" style="color: var(--accent);" aria-hidden="true">
+                    <path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
+            </div>
+
+            <span
+              class="absolute left-8 right-8 bottom-0 h-[3px] w-0 rounded-full transition-all duration-500 group-hover:w-[calc(100%-4rem)]"
+              style="background-color: var(--accent);"
+              aria-hidden="true"
+            />
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

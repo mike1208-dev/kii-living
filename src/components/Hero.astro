@@ -1,0 +1,87 @@
+---
+import { company, consultHref } from '../data/site';
+---
+
+<section class="relative overflow-hidden">
+  <!-- 背景の柔らかなグリーングラデーション -->
+  <div
+    class="absolute inset-0 -z-10"
+    aria-hidden="true"
+    style="background:
+      linear-gradient(180deg, var(--bg-subtle) 0%, var(--bg) 70%),
+      radial-gradient(70% 60% at 88% 8%, var(--accent-soft), transparent 60%);"
+  >
+  </div>
+
+  <div class="mx-auto max-w-6xl px-5 md:px-8">
+    <div class="pt-28 pb-20 md:pt-36 md:pb-24">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-10 items-center">
+        <!-- テキスト -->
+        <div>
+          <p class="reveal inline-flex items-center gap-2 text-xs md:text-sm tracking-[0.25em] mb-6 font-semibold" style="color: var(--accent);">
+            <span class="inline-block w-8 h-px" style="background-color: var(--accent);"></span>
+            REAL ESTATE &middot; RENOVATION &middot; DX &middot; MORTGAGE
+          </p>
+
+          <h1 class="reveal heading" style="color: var(--text); font-size: clamp(2.1rem, 6vw, 3.75rem); transition-delay: 60ms;">
+            住まいと暮らしを、<br class="hidden sm:block" />まるごと支える。
+          </h1>
+
+          <p class="reveal mt-8 max-w-xl text-base md:text-lg" style="color: var(--text-muted); transition-delay: 140ms;">
+            {company.lead}
+          </p>
+
+          <div class="reveal mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4" style="transition-delay: 220ms;">
+            <a
+              href={consultHref}
+              class="rounded-full px-8 py-4 text-center text-base font-semibold transition-transform hover:-translate-y-0.5"
+              style="background-color: var(--accent); color: var(--accent-contrast);"
+            >
+              無料相談・お問い合わせ
+            </a>
+            <a href="#services" class="group inline-flex items-center justify-center gap-2 px-2 text-base font-semibold" style="color: var(--text);">
+              事業内容を見る
+              <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- ヒーロー写真 -->
+        <div class="reveal relative" style="transition-delay: 180ms;">
+          <div class="relative rounded-3xl overflow-hidden shadow-xl" style="aspect-ratio: 7 / 5;">
+            <img
+              src="/images/photos/hero.jpg"
+              alt="明るいリビングのある住まい"
+              width="1400"
+              height="900"
+              fetchpriority="high"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <!-- 浮かせた実績バッジ -->
+          <div class="hidden sm:flex absolute -bottom-5 -left-5 items-center gap-3 rounded-2xl bg-white px-5 py-4 shadow-lg border" style="border-color: var(--border);">
+            <span class="inline-flex items-center justify-center w-11 h-11 rounded-full" style="background-color: var(--accent-soft);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+            </span>
+            <span>
+              <span class="block text-lg font-bold leading-tight" style="color: var(--navy);">ワンストップ対応</span>
+              <span class="block text-xs" style="color: var(--text-muted);">住まいの相談を一つの窓口で</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 事業のクイックインデックス -->
+      <div class="reveal mt-14 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl overflow-hidden border" style="border-color: var(--border); background-color: var(--border); transition-delay: 300ms;">
+        {
+          ['不動産売買・仲介', 'リフォーム', '不動産DX', '住宅ローン'].map((t, i) => (
+            <div class="flex items-center gap-2 px-4 py-4 md:px-5 md:py-5" style="background-color: var(--bg);">
+              <span class="text-sm font-bold" style="color: var(--accent);">{`0${i + 1}`}</span>
+              <span class="text-xs md:text-sm font-medium" style="color: var(--text);">{t}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

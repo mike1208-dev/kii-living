@@ -1,0 +1,36 @@
+---
+import { flow } from '../data/site';
+---
+
+<section class="py-24 md:py-32">
+  <div class="mx-auto max-w-6xl px-5 md:px-8">
+    <div class="reveal max-w-2xl mb-14 md:mb-16">
+      <p class="text-xs md:text-sm tracking-[0.3em] mb-4 font-semibold" style="color: var(--accent);">FLOW</p>
+      <h2 class="heading" style="font-size: clamp(1.75rem, 4.5vw, 2.75rem);">ご相談の流れ</h2>
+      <p class="mt-6 text-base md:text-lg" style="color: var(--text-muted);">
+        お問い合わせからお引き渡し、その後まで。専門スタッフが一貫してサポートします。
+      </p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      {
+        flow.map((f, i) => (
+          <div
+            class="reveal relative rounded-2xl border p-7 md:p-8"
+            style={`border-color: var(--border); background-color: var(--bg); transition-delay: ${i * 80}ms;`}
+          >
+            <span class="text-xs font-bold tracking-widest" style="color: var(--accent);">{f.step}</span>
+            <div class="mt-4 mb-4 inline-flex items-center justify-center w-12 h-12 rounded-full text-lg font-black" style="background-color: var(--navy); color:#fff;">
+              {i + 1}
+            </div>
+            <h3 class="text-lg font-bold mb-2" style="color: var(--navy);">{f.title}</h3>
+            <p class="text-sm" style="color: var(--text-muted);">{f.description}</p>
+            {i < flow.length - 1 && (
+              <span class="hidden lg:block absolute top-1/2 -right-3 text-2xl" style="color: var(--accent);" aria-hidden="true">›</span>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,99 @@
+@import 'tailwindcss';
+
+/* ──────────────────────────────────────────────
+   デザイントークン（ブランド：オレンジ × ネイビー）
+   ・ロゴ由来のブライトなオレンジをアクセントに
+   ・ネイビーを見出し・信頼感の主軸に
+   ・背景はホワイト。モダン / スマート / 広告向け
+   ────────────────────────────────────────────── */
+@theme {
+  --font-sans: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+
+  /* オレンジ（アクセント） */
+  --color-orange-50: #fef3e8;
+  --color-orange-100: #fde0c4;
+  --color-orange-300: #f4a862;
+  --color-orange-500: #e9781c;
+  --color-orange-600: #d1670f;
+  --color-orange-700: #a8520c;
+
+  /* ネイビー */
+  --color-navy-50: #eef2f8;
+  --color-navy-100: #d7e0ee;
+  --color-navy-300: #8598b7;
+  --color-navy-500: #33496c;
+  --color-navy-700: #1b2c48;
+  --color-navy-900: #17263f;
+}
+
+:root {
+  --bg: #ffffff;
+  --bg-subtle: #f5f7fb; /* 淡いクール系グレー（ネイビーと好相性） */
+  --bg-elevated: #ffffff;
+
+  --text: #17263f;        /* 見出し・強調（ネイビー） */
+  --text-body: #384457;   /* 本文 */
+  --text-muted: #5c6a87;  /* 補足 */
+
+  --border: #e4e9f1;
+
+  --accent: #e9781c;        /* オレンジ */
+  --accent-hover: #d1670f;
+  --accent-soft: #fdecd9;   /* オレンジの淡色 */
+  --accent-contrast: #ffffff;
+
+  --navy: #17263f;
+  --navy-soft: #eef2f8;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  background-color: var(--bg);
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-body);
+  font-family: var(--font-sans);
+  font-feature-settings: 'palt';
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  line-height: 1.8;
+}
+
+/* 見出し */
+.heading {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.32;
+  color: var(--navy);
+}
+
+/* アクセシビリティ：フォーカスの可視化 */
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* モーション低減の尊重 */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* スクロール連動の登場アニメーション */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}

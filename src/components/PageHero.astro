@@ -1,0 +1,33 @@
+---
+// 下層ページ共通のページ見出し（固定ヘッダーのオフセット込み）
+interface Props {
+  eyebrow: string; // 英字ラベル
+  title: string; // 日本語見出し
+  lead?: string;
+}
+const { eyebrow, title, lead } = Astro.props;
+---
+
+<section class="relative overflow-hidden pt-32 md:pt-40 pb-14 md:pb-20" style="background-color: var(--bg-subtle);">
+  <div
+    class="absolute inset-0"
+    aria-hidden="true"
+    style="background: radial-gradient(60% 100% at 90% 0%, var(--accent-soft), transparent 60%);"
+  >
+  </div>
+  <div class="relative mx-auto max-w-6xl px-5 md:px-8">
+    <p class="reveal text-xs md:text-sm tracking-[0.3em] font-semibold mb-4" style="color: var(--accent);">
+      {eyebrow}
+    </p>
+    <h1 class="reveal heading" style="color: var(--text); font-size: clamp(1.9rem, 5vw, 3.25rem); transition-delay: 60ms;">
+      {title}
+    </h1>
+    {
+      lead && (
+        <p class="reveal mt-6 max-w-2xl text-base md:text-lg" style="color: var(--text-muted); transition-delay: 120ms;">
+          {lead}
+        </p>
+      )
+    }
+  </div>
+</section>

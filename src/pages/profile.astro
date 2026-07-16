@@ -1,0 +1,93 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { company, message } from '../data/site';
+
+const rows = [
+  { label: '会社名', value: `${company.name}（${company.nameEn}）` },
+  { label: '代表者', value: company.ceo },
+  { label: '設立', value: company.established },
+  { label: '資本金', value: company.capital },
+  { label: '所在地', value: company.address.full },
+  { label: '事業内容', value: '不動産売買・仲介／リフォーム／不動産DX／住宅ローン' },
+  { label: '免許番号', value: company.license },
+  { label: '営業時間', value: company.businessHours },
+  { label: 'TEL', value: company.tel },
+  { label: 'Email', value: company.email },
+];
+---
+
+<Base title={`会社概要 | ${company.name}`} description={`${company.name}の会社概要。${company.description}`}>
+  <PageHero
+    eyebrow="COMPANY PROFILE"
+    title="会社概要"
+    lead="地域に根ざし、住まいにまつわるあらゆるご相談にお応えする不動産会社として、透明性と信頼を大切にしています。"
+  />
+
+  <!-- 代表メッセージ -->
+  <section class="py-20 md:py-28">
+    <div class="mx-auto max-w-6xl px-5 md:px-8">
+      <div class="grid gap-10 md:gap-16 md:grid-cols-2 items-center">
+        <div class="reveal">
+          <p class="text-xs md:text-sm tracking-[0.3em] mb-4 font-semibold" style="color: var(--accent);">MESSAGE</p>
+          <h2 class="heading mb-8" style="color: var(--text); font-size: clamp(1.6rem, 4vw, 2.5rem);">
+            {message.heading}
+          </h2>
+          {message.body.map((p) => (
+            <p class="text-base md:text-lg mb-5" style="color: var(--text-muted);">{p}</p>
+          ))}
+          <p class="mt-6 text-base font-semibold" style="color: var(--text);">{message.signature}</p>
+        </div>
+        <div class="reveal order-first md:order-last" style="transition-delay: 100ms;">
+          <img
+            src="/images/photos/company.jpg"
+            alt="地域の街並み"
+            width="1200"
+            height="900"
+            loading="lazy"
+            decoding="async"
+            class="w-full h-auto rounded-3xl shadow-lg"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 会社情報テーブル -->
+  <section class="py-20 md:py-28" style="background-color: var(--bg-subtle);">
+    <div class="mx-auto max-w-4xl px-5 md:px-8">
+      <div class="reveal mb-12">
+        <p class="text-xs md:text-sm tracking-[0.3em] mb-4 font-semibold" style="color: var(--accent);">OVERVIEW</p>
+        <h2 class="heading" style="color: var(--text); font-size: clamp(1.5rem, 4vw, 2.25rem);">会社情報</h2>
+      </div>
+      <dl class="reveal rounded-2xl overflow-hidden border bg-white" style="border-color: var(--border);">
+        {
+          rows.map((row, i) => (
+            <div
+              class="flex flex-col sm:flex-row sm:gap-8 px-6 md:px-8 py-5 border-b last:border-0"
+              style={`border-color: var(--border); ${i % 2 === 1 ? 'background-color: var(--bg-subtle);' : ''}`}
+            >
+              <dt class="w-full sm:w-40 shrink-0 text-sm font-bold mb-1 sm:mb-0" style="color: var(--accent);">
+                {row.label}
+              </dt>
+              <dd class="text-sm md:text-base" style="color: var(--text);">{row.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+
+      {
+        company.address.mapUrl && (
+          <div class="reveal mt-8 rounded-2xl overflow-hidden border" style="border-color: var(--border);">
+            <a href={company.address.mapUrl} target="_blank" rel="noopener" class="block px-6 py-4 text-sm font-semibold" style="color: var(--accent);">
+              地図で見る →
+            </a>
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>

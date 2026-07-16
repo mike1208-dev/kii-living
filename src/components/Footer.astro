@@ -1,0 +1,41 @@
+---
+import { company, nav, consultHref } from '../data/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t pt-16 pb-10" style="border-color: var(--border); background-color: var(--bg-subtle);">
+  <div class="mx-auto max-w-6xl px-5 md:px-8">
+    <div class="grid gap-10 md:grid-cols-[1.4fr_1fr]">
+      <div>
+        <a href="/" class="flex items-center gap-2.5" aria-label={`${company.name} ホーム`}>
+          <img src="/logo-mark.svg" alt="" width="34" height="34" class="w-8 h-8" />
+          <span class="text-lg font-bold" style="color: var(--text);">Kii&nbsp;Living</span>
+        </a>
+        <p class="mt-4 text-sm max-w-sm" style="color: var(--text-muted);">
+          {company.tagline}<br />{company.description}
+        </p>
+        <p class="mt-4 text-sm" style="color: var(--text-muted);">{company.address.full}</p>
+      </div>
+
+      <nav class="flex flex-col gap-3" aria-label="フッターナビゲーション">
+        {
+          nav.map((item) => (
+            <a href={item.href} class="text-sm transition-colors hover:opacity-70" style="color: var(--text);">
+              {item.label}
+            </a>
+          ))
+        }
+        <a href={consultHref} class="text-sm font-semibold transition-colors hover:opacity-70" style="color: var(--accent);">
+          無料相談はこちら →
+        </a>
+      </nav>
+    </div>
+
+    <div class="mt-12 pt-6 border-t flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2" style="border-color: var(--border);">
+      <p class="text-xs" style="color: var(--text-muted);">
+        &copy; {year} {company.name} All Rights Reserved.
+      </p>
+      <p class="text-xs" style="color: var(--text-muted);">{company.license}</p>
+    </div>
+  </div>
+</footer>

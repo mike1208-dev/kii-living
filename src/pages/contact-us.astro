@@ -1,0 +1,136 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { company } from '../data/site';
+
+const topics = ['不動産売買・仲介', 'リフォーム', '不動産DX', '住宅ローン', 'その他'];
+---
+
+<Base title={`お問い合わせ | ${company.name}`} description={`${company.name}へのお問い合わせ・無料相談はこちら。お電話・メール・フォームで承ります。`}>
+  <PageHero
+    eyebrow="CONTACT"
+    title="お問い合わせ・無料相談"
+    lead="売却・購入からリフォーム、住宅ローンまで。ご相談は無料です。下記フォームまたはお電話・メールにてお気軽にご連絡ください。"
+  />
+
+  <section class="py-20 md:py-28">
+    <div class="mx-auto max-w-6xl px-5 md:px-8">
+      <div class="grid gap-12 lg:gap-16 lg:grid-cols-[1.3fr_1fr]">
+        <!-- フォーム -->
+        <div class="reveal">
+          <h2 class="text-xl md:text-2xl font-bold mb-8" style="color: var(--text);">フォームでのお問い合わせ</h2>
+          <form id="contact-form" class="flex flex-col gap-6" novalidate>
+            <div class="flex flex-col gap-2">
+              <label for="name" class="text-sm font-semibold" style="color: var(--text);">お名前 <span style="color:#c0392b;">*</span></label>
+              <input id="name" name="name" type="text" required autocomplete="name"
+                class="rounded-xl border px-4 py-3 text-base outline-none transition-colors focus:border-[var(--accent)]"
+                style="border-color: var(--border); background-color: var(--bg);" placeholder="山田 太郎" />
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div class="flex flex-col gap-2">
+                <label for="email" class="text-sm font-semibold" style="color: var(--text);">メールアドレス <span style="color:#c0392b;">*</span></label>
+                <input id="email" name="email" type="email" required autocomplete="email"
+                  class="rounded-xl border px-4 py-3 text-base outline-none transition-colors focus:border-[var(--accent)]"
+                  style="border-color: var(--border); background-color: var(--bg);" placeholder="example@email.com" />
+              </div>
+              <div class="flex flex-col gap-2">
+                <label for="tel" class="text-sm font-semibold" style="color: var(--text);">電話番号（任意）</label>
+                <input id="tel" name="tel" type="tel" autocomplete="tel"
+                  class="rounded-xl border px-4 py-3 text-base outline-none transition-colors focus:border-[var(--accent)]"
+                  style="border-color: var(--border); background-color: var(--bg);" placeholder="090-0000-0000" />
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="topic" class="text-sm font-semibold" style="color: var(--text);">ご相談内容</label>
+              <select id="topic" name="topic"
+                class="rounded-xl border px-4 py-3 text-base outline-none transition-colors focus:border-[var(--accent)]"
+                style="border-color: var(--border); background-color: var(--bg); color: var(--text);">
+                {topics.map((t) => <option value={t}>{t}</option>)}
+              </select>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="message" class="text-sm font-semibold" style="color: var(--text);">お問い合わせ内容 <span style="color:#c0392b;">*</span></label>
+              <textarea id="message" name="message" required rows="6"
+                class="rounded-xl border px-4 py-3 text-base outline-none transition-colors focus:border-[var(--accent)] resize-y"
+                style="border-color: var(--border); background-color: var(--bg);" placeholder="ご相談内容をご記入ください。"></textarea>
+            </div>
+
+            <p id="form-error" class="hidden text-sm" style="color:#c0392b;" role="alert"></p>
+
+            <button type="submit"
+              class="self-start rounded-full px-10 py-4 text-base font-semibold transition-transform hover:-translate-y-0.5"
+              style="background-color: var(--accent); color: var(--accent-contrast);">
+              この内容で送信する
+            </button>
+            <p class="text-xs" style="color: var(--text-muted);">
+              ※ 送信ボタンを押すと、ご利用のメールソフトが起動します。うまく動作しない場合は、下記メールアドレス宛に直接ご連絡ください。
+            </p>
+          </form>
+        </div>
+
+        <!-- 連絡先情報 -->
+        <div class="reveal" style="transition-delay: 120ms;">
+          <div class="rounded-2xl border p-8" style="border-color: var(--border); background-color: var(--bg-subtle);">
+            <h2 class="text-lg font-bold mb-6" style="color: var(--text);">お電話・メール</h2>
+
+            <a href={company.telHref} class="block rounded-xl bg-white border p-5 mb-4 transition-transform hover:-translate-y-0.5" style="border-color: var(--border);">
+              <span class="block text-xs mb-1" style="color: var(--text-muted);">お電話でのお問い合わせ</span>
+              <span class="block text-2xl font-bold" style="color: var(--accent);">{company.tel}</span>
+              <span class="block text-xs mt-1" style="color: var(--text-muted);">{company.businessHours}</span>
+            </a>
+
+            <a href={`mailto:${company.email}`} class="block rounded-xl bg-white border p-5 transition-transform hover:-translate-y-0.5" style="border-color: var(--border);">
+              <span class="block text-xs mb-1" style="color: var(--text-muted);">メールでのお問い合わせ</span>
+              <span class="block text-lg font-bold break-all" style="color: var(--accent);">{company.email}</span>
+              <span class="block text-xs mt-1" style="color: var(--text-muted);">24時間受付</span>
+            </a>
+
+            <div class="mt-6 pt-6 border-t" style="border-color: var(--border);">
+              <span class="block text-xs mb-1" style="color: var(--text-muted);">所在地</span>
+              <span class="block text-sm" style="color: var(--text);">{company.address.full}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script is:inline define:vars={{ email: company.email }}>
+  // 現状は静的サイトのため、送信時に mailto: を組み立ててメールソフトを起動します。
+  // 将来的にサーバー送信へ移行する場合は、この handler を Cloudflare Pages Functions
+  // （例: POST /api/contact）＋ Turnstile によるスパム対策に差し替えてください。
+  const form = document.getElementById('contact-form');
+  const errorEl = document.getElementById('form-error');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const name = String(data.get('name') || '').trim();
+    const mail = String(data.get('email') || '').trim();
+    const tel = String(data.get('tel') || '').trim();
+    const topic = String(data.get('topic') || '');
+    const message = String(data.get('message') || '').trim();
+
+    if (!name || !mail || !message) {
+      if (errorEl) {
+        errorEl.textContent = 'お名前・メールアドレス・お問い合わせ内容は必須です。';
+        errorEl.classList.remove('hidden');
+      }
+      return;
+    }
+    errorEl?.classList.add('hidden');
+
+    const subject = `【お問い合わせ】${topic}（${name}様）`;
+    const body =
+      `お名前：${name}\n` +
+      `メール：${mail}\n` +
+      `電話番号：${tel || '（未入力）'}\n` +
+      `ご相談内容：${topic}\n\n` +
+      `${message}\n`;
+    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+</script>

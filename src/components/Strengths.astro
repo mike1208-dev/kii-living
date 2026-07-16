@@ -1,0 +1,42 @@
+---
+import { strengths } from '../data/site';
+---
+
+<section class="py-24 md:py-32" style="background-color: var(--bg-subtle);">
+  <div class="mx-auto max-w-6xl px-5 md:px-8">
+    <div class="reveal max-w-2xl mb-14 md:mb-16">
+      <p class="text-xs md:text-sm tracking-[0.3em] mb-4 font-semibold" style="color: var(--accent);">
+        WHY KII LIVING
+      </p>
+      <h2 class="heading" style="color: var(--text); font-size: clamp(1.75rem, 4.5vw, 2.75rem);">
+        Kii Living が選ばれる理由
+      </h2>
+    </div>
+
+    <div class="grid gap-6 md:gap-8 md:grid-cols-3">
+      {
+        strengths.map((s, i) => (
+          <div
+            class="reveal rounded-2xl bg-white border p-8 md:p-10"
+            style={`border-color: var(--border); transition-delay: ${i * 90}ms;`}
+          >
+            <div class="flex items-center gap-3 mb-5">
+              <span
+                class="inline-flex items-center justify-center w-11 h-11 rounded-full text-sm font-bold"
+                style="background-color: var(--accent); color: var(--accent-contrast);"
+              >
+                {s.no}
+              </span>
+            </div>
+            <h3 class="text-lg md:text-xl font-bold mb-3" style="color: var(--text);">
+              {s.title}
+            </h3>
+            <p class="text-sm md:text-base" style="color: var(--text-muted);">
+              {s.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
