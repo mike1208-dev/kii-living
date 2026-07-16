@@ -7,9 +7,8 @@ const year = new Date().getFullYear();
   <div class="mx-auto max-w-6xl px-5 md:px-8">
     <div class="grid gap-10 md:grid-cols-[1.4fr_1fr]">
       <div>
-        <a href="/" class="flex items-center gap-2.5" aria-label={`${company.name} ホーム`}>
-          <img src="/logo-mark.svg" alt="" width="34" height="34" class="w-8 h-8" />
-          <span class="text-lg font-bold" style="color: var(--text);">Kii&nbsp;Living</span>
+        <a href="/" class="inline-flex items-center" aria-label={`${company.name} ホーム`}>
+          <img src="/logo.svg" alt={company.name} width="732" height="229" class="h-9 w-auto" />
         </a>
         <p class="mt-4 text-sm max-w-sm" style="color: var(--text-muted);">
           {company.tagline}<br />{company.description}

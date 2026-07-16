@@ -16,10 +16,14 @@ import { testimonials } from '../data/site';
             class="reveal flex flex-col rounded-2xl bg-white border p-8"
             style={`border-color: var(--border); transition-delay: ${i * 90}ms;`}
           >
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="var(--accent-soft)" aria-hidden="true">
-              <path d="M9 7H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v2a2 2 0 0 1-2 2H4v2h1a4 4 0 0 0 4-4V7zm11 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v2a2 2 0 0 1-2 2h-1v2h1a4 4 0 0 0 4-4V7z"/>
-            </svg>
-            <blockquote class="mt-4 flex-1 text-base" style="color: var(--text-body);">{t.body}</blockquote>
+            <div class="flex gap-1 mb-5" aria-label="5つ星の評価">
+              {Array.from({ length: 5 }).map(() => (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)" aria-hidden="true">
+                  <path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 9.3l6.5-.9L12 2.5z"/>
+                </svg>
+              ))}
+            </div>
+            <blockquote class="flex-1 text-base leading-loose" style="color: var(--text-body);">「{t.body}」</blockquote>
             <figcaption class="mt-6 flex items-center gap-3">
               <span class="inline-flex items-center justify-center w-11 h-11 rounded-full text-sm font-bold" style="background-color: var(--navy-soft); color: var(--navy);">
                 {t.name.charAt(0)}
