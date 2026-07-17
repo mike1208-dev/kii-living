@@ -9,11 +9,11 @@ import { testimonials } from '../data/site';
       <h2 class="heading" style="font-size: clamp(1.75rem, 4.5vw, 2.75rem);">お客様の声</h2>
     </div>
 
-    <div class="grid gap-6 md:gap-8 md:grid-cols-3">
+    <div class="grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {
         testimonials.map((t, i) => (
           <figure
-            class="reveal flex flex-col rounded-2xl bg-white border p-8"
+            class="reveal flex flex-col rounded-2xl bg-white border p-6 sm:p-8"
             style={`border-color: var(--border); transition-delay: ${i * 90}ms;`}
           >
             <div class="flex gap-1 mb-5" aria-label="5つ星の評価">
