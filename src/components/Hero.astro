@@ -34,7 +34,7 @@ import { company, consultHref } from '../data/site';
           <div class="reveal mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4" style="transition-delay: 220ms;">
             <a
               href={consultHref}
-              class="rounded-full px-8 py-4 text-center text-base font-semibold transition-transform hover:-translate-y-0.5"
+              class="rounded-full px-8 py-4 text-center text-base font-semibold transition-opacity hover:opacity-90"
               style="background-color: var(--accent); color: var(--accent-contrast);"
             >
               無料相談・お問い合わせ
@@ -48,7 +48,7 @@ import { company, consultHref } from '../data/site';
 
         <!-- ヒーロー写真 -->
         <div class="reveal relative" style="transition-delay: 180ms;">
-          <div class="relative rounded-3xl overflow-hidden shadow-xl" style="aspect-ratio: 7 / 5;">
+          <div class="relative rounded-3xl overflow-hidden shadow-lg" style="aspect-ratio: 7 / 5;">
             <img
               src="/images/photos/hero.jpg"
               alt="明るいリビングのある住まい"
@@ -59,7 +59,7 @@ import { company, consultHref } from '../data/site';
             />
           </div>
           <!-- 浮かせた実績バッジ -->
-          <div class="hidden sm:flex absolute -bottom-5 -left-5 items-center gap-3 rounded-2xl bg-white px-5 py-4 shadow-lg border" style="border-color: var(--border);">
+          <div class="hidden sm:flex absolute -bottom-5 -left-5 items-center gap-3 rounded-2xl bg-white px-5 py-4 shadow-md border" style="border-color: var(--border);">
             <span class="inline-flex items-center justify-center w-11 h-11 rounded-full" style="background-color: var(--accent-soft);">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
             </span>

@@ -4,11 +4,34 @@ interface Props {
   eyebrow: string; // 英字ラベル
   title: string; // 日本語見出し
   lead?: string;
+  image?: string; // 背景画像（薄く敷く）
 }
-const { eyebrow, title, lead } = Astro.props;
+const { eyebrow, title, lead, image } = Astro.props;
 ---
 
 <section class="relative overflow-hidden pt-32 md:pt-40 pb-14 md:pb-20" style="background-color: var(--bg-subtle);">
+  {
+    image && (
+      <img
+        src={image}
+        alt=""
+        aria-hidden="true"
+        class="absolute inset-0 w-full h-full object-cover"
+        style="opacity: 0.35;"
+      />
+    )
+  }
+  <!-- 可読性確保のためのオーバーレイ（左を濃く） -->
+  {
+    image && (
+      <div
+        class="absolute inset-0"
+        aria-hidden="true"
+        style="background: linear-gradient(90deg, var(--bg-subtle) 0%, color-mix(in srgb, var(--bg-subtle) 65%, transparent) 45%, transparent 100%);"
+      />
+    )
+  }
+  <!-- アクセントの淡いグロー -->
   <div
     class="absolute inset-0"
     aria-hidden="true"
