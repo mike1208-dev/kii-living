@@ -71,6 +71,11 @@ const { showHeading = true } = Astro.props;
                 </li>
               ))}
             </ul>
+            {b.href && (
+              <a href={b.href} class="mt-6 inline-flex items-center gap-2 text-sm font-semibold" style="color: var(--accent);">
+                詳しく見る <span aria-hidden="true">→</span>
+              </a>
+            )}
             </div>
 
             <span

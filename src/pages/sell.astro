@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Steps from '../components/Steps.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { company, sell } from '../data/site';
+---
+
+<Base title={`売却をお考えの方へ | ${company.name}`} description="不動産の売却をお考えの方へ。無料査定から引き渡しまで、地域に精通したスタッフが一貫サポートします。">
+  <PageHero eyebrow={sell.eyebrow} title={sell.title} lead={sell.lead} />
+
+  <!-- 選ばれる理由 -->
+  <section class="py-20 md:py-28">
+    <div class="mx-auto max-w-6xl px-5 md:px-8">
+      <div class="reveal max-w-2xl mb-14 md:mb-16">
+        <p class="text-xs md:text-sm tracking-[0.3em] mb-4 font-semibold eyebrow" style="color: var(--accent);">WHY SELL WITH US</p>
+        <h2 class="heading" style="font-size: clamp(1.6rem, 4vw, 2.5rem);">安心して売却できる理由</h2>
+      </div>
+      <div class="grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          sell.reasons.map((r, i) => (
+            <div class="reveal rounded-2xl border p-6 sm:p-8 lg:p-10" style={`border-color: var(--border); background-color: var(--bg-elevated); transition-delay: ${i * 90}ms;`}>
+              <div class="inline-flex items-center justify-center w-11 h-11 rounded-full mb-5 text-sm font-bold" style="background-color: var(--accent); color:#fff;">{`0${i + 1}`}</div>
+              <h3 class="text-lg md:text-xl font-bold mb-3" style="color: var(--navy);">{r.title}</h3>
+              <p class="text-sm md:text-base" style="color: var(--text-muted);">{r.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 売却の流れ -->
+  <section class="py-20 md:py-28" style="background-color: var(--bg-subtle);">
+    <div class="mx-auto max-w-6xl px-5 md:px-8">
+      <div class="reveal max-w-2xl mb-14 md:mb-16">
+        <p class="text-xs md:text-sm tracking-[0.3em] mb-4 font-semibold eyebrow" style="color: var(--accent);">FLOW</p>
+        <h2 class="heading" style="font-size: clamp(1.6rem, 4vw, 2.5rem);">売却の流れ</h2>
+        <p class="mt-6 text-base md:text-lg" style="color: var(--text-muted);">まずは無料査定から。ご相談だけでも歓迎です。</p>
+      </div>
+      <Steps steps={sell.flow} />
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>

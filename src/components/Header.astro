@@ -17,7 +17,7 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
         <img src="/logo.svg" alt={company.name} width="732" height="229" class="h-11 md:h-14 w-auto" />
       </a>
 
-      <nav class="hidden md:flex items-center gap-9" aria-label="メインナビゲーション">
+      <nav class="hidden lg:flex items-center gap-6 xl:gap-8" aria-label="メインナビゲーション">
         {
           nav.map((item) => (
             <a
@@ -48,7 +48,7 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
       <!-- モバイル：メニュー開閉 -->
       <button
         id="menu-toggle"
-        class="md:hidden inline-flex items-center justify-center w-10 h-10 -mr-2"
+        class="lg:hidden inline-flex items-center justify-center w-10 h-10 -mr-2"
         aria-label="メニューを開く"
         aria-expanded="false"
         aria-controls="mobile-menu"
@@ -64,7 +64,7 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
   <!-- モバイルメニュー -->
   <div
     id="mobile-menu"
-    class="md:hidden hidden border-t"
+    class="lg:hidden hidden border-t"
     style="border-color: var(--border); background-color: var(--bg);"
   >
     <nav class="mx-auto max-w-6xl px-5 py-4 flex flex-col" aria-label="モバイルナビゲーション">
