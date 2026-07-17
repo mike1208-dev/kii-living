@@ -1,21 +1,21 @@
 @import 'tailwindcss';
 
 /* ──────────────────────────────────────────────
-   デザイントークン（ブランド：オレンジ × ネイビー）
-   ・ロゴ由来のブライトなオレンジをアクセントに
+   デザイントークン（ブランド：コーポレートレッド × ネイビー）
+   ・企業カラー #FF3C34 をアクセントに（目に痛くならないよう小面積・淡色で運用）
    ・ネイビーを見出し・信頼感の主軸に
    ・背景はホワイト。モダン / スマート / 広告向け
    ────────────────────────────────────────────── */
 @theme {
   --font-sans: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
 
-  /* オレンジ（アクセント） */
-  --color-orange-50: #fef3e8;
-  --color-orange-100: #fde0c4;
-  --color-orange-300: #f4a862;
-  --color-orange-500: #e9781c;
-  --color-orange-600: #d1670f;
-  --color-orange-700: #a8520c;
+  /* コーポレートレッド（アクセント） */
+  --color-red-50: #ffecea;
+  --color-red-100: #ffd3cf;
+  --color-red-300: #ff8a84;
+  --color-red-500: #ff3c34;
+  --color-red-600: #e02c25;
+  --color-red-700: #b81f19;
 
   /* ネイビー */
   --color-navy-50: #eef2f8;
@@ -37,9 +37,9 @@
 
   --border: #e4e9f1;
 
-  --accent: #e9781c;        /* オレンジ */
-  --accent-hover: #d1670f;
-  --accent-soft: #fdecd9;   /* オレンジの淡色 */
+  --accent: #ff3c34;        /* 企業カラー（レッド） */
+  --accent-hover: #e02c25;  /* ホバー時の少し深いレッド */
+  --accent-soft: #ffe8e6;   /* レッドの淡色（背景・アイコン地） */
   --accent-contrast: #ffffff;
 
   --navy: #17263f;
