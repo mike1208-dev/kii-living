@@ -5,7 +5,7 @@ import { strengths } from '../data/site';
 <section class="py-24 md:py-32" style="background-color: var(--bg-subtle);">
   <div class="mx-auto max-w-6xl px-5 md:px-8">
     <div class="reveal max-w-2xl mb-14 md:mb-16">
-      <p class="text-xs md:text-sm tracking-[0.3em] mb-4 font-semibold" style="color: var(--accent);">
+      <p class="text-xs md:text-sm tracking-[0.3em] mb-4 font-semibold eyebrow" style="color: var(--accent);">
         WHY KII LIVING
       </p>
       <h2 class="heading" style="color: var(--text); font-size: clamp(1.75rem, 4.5vw, 2.75rem);">
@@ -13,11 +13,11 @@ import { strengths } from '../data/site';
       </h2>
     </div>
 
-    <div class="grid gap-6 md:gap-8 md:grid-cols-3">
+    <div class="grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {
         strengths.map((s, i) => (
           <div
-            class="reveal rounded-2xl bg-white border p-8 md:p-10"
+            class="reveal rounded-2xl bg-white border p-6 sm:p-8 lg:p-10"
             style={`border-color: var(--border); transition-delay: ${i * 90}ms;`}
           >
             <div class="flex items-center gap-3 mb-5">

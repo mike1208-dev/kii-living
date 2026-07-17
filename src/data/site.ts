@@ -98,11 +98,11 @@ export const businesses: Business[] = [
 // グローバルナビゲーション（各ページへのリンク）
 export const nav = [
   { label: '事業内容', href: '/' },
-  { label: '会社概要', href: '/profile' },
+  { label: '会社概要', href: '/about' },
 ] as const;
 
 // 「無料相談」ボタンのリンク先（お問い合わせと共通）
-export const consultHref = '/contact-us';
+export const consultHref = '/contact';
 
 // 選ばれる理由（トップページ）
 export type Strength = {
