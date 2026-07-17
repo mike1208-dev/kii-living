@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { company, properties } from '../data/site';
+---
+
+<Base title={`物件紹介 | ${company.name}`} description="Kii Living の取扱物件のご紹介。中古マンション・新築戸建て・土地など、住まい探しをサポートします。">
+  <PageHero
+    eyebrow="PROPERTIES"
+    title="物件紹介"
+    lead="中古マンション・新築戸建て・土地まで、幅広い物件をお取り扱いしています。ご希望の条件に合う住まいをご提案します。"
+  />
+
+  <section class="py-16 md:py-24">
+    <div class="mx-auto max-w-6xl px-5 md:px-8">
+      <!-- 注記 -->
+      <div class="reveal mb-10 rounded-xl border px-5 py-4 text-sm" style="border-color: var(--border); background-color: var(--accent-soft); color: var(--navy);">
+        ※ 掲載中の物件はすべて<strong>イメージ</strong>です。最新の物件情報・非公開物件については、お気軽にお問い合わせください。
+      </div>
+
+      <div class="grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          properties.map((p, i) => (
+            <article
+              class="reveal group flex flex-col rounded-2xl border overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              style={`border-color: var(--border); background-color: var(--bg-elevated); transition-delay: ${(i % 3) * 80}ms;`}
+            >
+              <div class="relative overflow-hidden" style="aspect-ratio: 4 / 3;">
+                <img src={p.image} alt={`${p.name}の外観イメージ`} width="800" height="600" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <span class="absolute top-3 left-3 rounded-full px-3 py-1 text-xs font-bold" style="background-color: var(--navy); color:#fff;">{p.type}</span>
+              </div>
+              <div class="flex flex-col flex-1 p-6">
+                <h3 class="text-base font-bold mb-2" style="color: var(--navy);">{p.name}</h3>
+                <p class="mb-4">
+                  <span class="text-2xl font-black" style="color: var(--accent);">{p.price}</span>
+                </p>
+                <dl class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm mb-4" style="color: var(--text-muted);">
+                  <div><dt class="inline font-medium" style="color: var(--navy);">間取り：</dt><dd class="inline">{p.layout}</dd></div>
+                  <div><dt class="inline font-medium" style="color: var(--navy);">面積：</dt><dd class="inline">{p.area}</dd></div>
+                  <div class="col-span-2"><dt class="inline font-medium" style="color: var(--navy);">アクセス：</dt><dd class="inline">{p.access}</dd></div>
+                </dl>
+                <div class="mt-auto flex flex-wrap gap-2">
+                  {p.tags.map((t) => (
+                    <span class="rounded-full px-2.5 py-1 text-xs" style="background-color: var(--navy-soft); color: var(--navy);">{t}</span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>

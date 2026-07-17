@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Steps from '../components/Steps.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { company, buy } from '../data/site';
+---
+
+<Base title={`購入をお考えの方へ | ${company.name}`} description="住まいの購入をお考えの方へ。物件探し・資金計画・住宅ローン・リフォームまでワンストップでサポートします。">
+  <PageHero eyebrow={buy.eyebrow} title={buy.title} lead={buy.lead} />
+
+  <!-- サポート内容 -->
+  <section class="py-20 md:py-28">
+    <div class="mx-auto max-w-6xl px-5 md:px-8">
+      <div class="reveal max-w-2xl mb-14 md:mb-16">
+        <p class="text-xs md:text-sm tracking-[0.3em] mb-4 font-semibold eyebrow" style="color: var(--accent);">SUPPORT</p>
+        <h2 class="heading" style="font-size: clamp(1.6rem, 4vw, 2.5rem);">購入をトータルでサポート</h2>
+      </div>
+      <div class="grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          buy.supports.map((s, i) => (
+            <div class="reveal rounded-2xl border p-6 sm:p-8 lg:p-10" style={`border-color: var(--border); background-color: var(--bg-elevated); transition-delay: ${i * 90}ms;`}>
+              <div class="inline-flex items-center justify-center w-11 h-11 rounded-full mb-5 text-sm font-bold" style="background-color: var(--accent); color:#fff;">{`0${i + 1}`}</div>
+              <h3 class="text-lg md:text-xl font-bold mb-3" style="color: var(--navy);">{s.title}</h3>
+              <p class="text-sm md:text-base" style="color: var(--text-muted);">{s.description}</p>
+            </div>
+          ))
+        }
+      </div>
+      <div class="reveal mt-10">
+        <a href="/properties" class="inline-flex items-center gap-2 text-base font-semibold" style="color: var(--accent);">
+          物件を探す <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 購入の流れ -->
+  <section class="py-20 md:py-28" style="background-color: var(--bg-subtle);">
+    <div class="mx-auto max-w-6xl px-5 md:px-8">
+      <div class="reveal max-w-2xl mb-14 md:mb-16">
+        <p class="text-xs md:text-sm tracking-[0.3em] mb-4 font-semibold eyebrow" style="color: var(--accent);">FLOW</p>
+        <h2 class="heading" style="font-size: clamp(1.6rem, 4vw, 2.5rem);">購入の流れ</h2>
+        <p class="mt-6 text-base md:text-lg" style="color: var(--text-muted);">ご相談から物件探し、お引き渡しまで伴走します。</p>
+      </div>
+      <Steps steps={buy.flow} />
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
