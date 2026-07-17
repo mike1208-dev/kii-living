@@ -15,12 +15,11 @@ const { steps } = Astro.props;
   {
     steps.map((f, i) => (
       <div
-        class="reveal relative rounded-2xl border p-6 sm:p-7 lg:p-8"
+        class="reveal relative rounded-2xl border shadow-md p-6 sm:p-7 lg:p-8"
         style={`border-color: var(--border); background-color: var(--bg); transition-delay: ${i * 80}ms;`}
       >
-        <span class="text-xs font-bold tracking-widest" style="color: var(--accent);">{f.step}</span>
-        <div class="mt-4 mb-4 inline-flex items-center justify-center w-12 h-12 rounded-full text-lg font-black" style="background-color: var(--navy); color:#fff;">
-          {i + 1}
+        <div class="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-full text-lg font-black" style="background-color: var(--navy); color:#fff;">
+          {String(i + 1).padStart(2, '0')}
         </div>
         <h3 class="text-lg font-bold mb-2" style="color: var(--navy);">{f.title}</h3>
         <p class="text-sm" style="color: var(--text-muted);">{f.description}</p>

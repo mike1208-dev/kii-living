@@ -7,7 +7,7 @@ import { company, sell } from '../data/site';
 ---
 
 <Base title={`売却をお考えの方へ | ${company.name}`} description="不動産の売却をお考えの方へ。無料査定から引き渡しまで、地域に精通したスタッフが一貫サポートします。">
-  <PageHero eyebrow={sell.eyebrow} title={sell.title} lead={sell.lead} />
+  <PageHero eyebrow={sell.eyebrow} title={sell.title} lead={sell.lead} image="/images/photos/service-01.jpg" />
 
   <!-- 選ばれる理由 -->
   <section class="py-20 md:py-28">
@@ -19,7 +19,7 @@ import { company, sell } from '../data/site';
       <div class="grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {
           sell.reasons.map((r, i) => (
-            <div class="reveal rounded-2xl border p-6 sm:p-8 lg:p-10" style={`border-color: var(--border); background-color: var(--bg-elevated); transition-delay: ${i * 90}ms;`}>
+            <div class="reveal rounded-2xl border shadow-md p-6 sm:p-8 lg:p-10" style={`border-color: var(--border); background-color: var(--bg-elevated); transition-delay: ${i * 90}ms;`}>
               <div class="inline-flex items-center justify-center w-11 h-11 rounded-full mb-5 text-sm font-bold" style="background-color: var(--accent); color:#fff;">{`0${i + 1}`}</div>
               <h3 class="text-lg md:text-xl font-bold mb-3" style="color: var(--navy);">{r.title}</h3>
               <p class="text-sm md:text-base" style="color: var(--text-muted);">{r.description}</p>
