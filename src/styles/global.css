@@ -97,3 +97,68 @@ body {
   opacity: 1;
   transform: none;
 }
+
+/* サブタイトル（英字ラベル）の登場アニメーション：フェード＋下線が伸びる */
+.eyebrow {
+  position: relative;
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.eyebrow.is-visible {
+  opacity: 1;
+  transform: none;
+}
+.eyebrow::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 0;
+  background: currentColor;
+  transition: width 0.7s ease 0.2s;
+}
+.eyebrow.is-visible::after {
+  width: 100%;
+}
+
+/* トップへ戻るボタン */
+.to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 60;
+  width: 3rem;
+  height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(23, 38, 63, 0.22);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s, background-color 0.2s ease;
+  cursor: pointer;
+}
+.to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+.to-top:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+@media (min-width: 768px) {
+  .to-top {
+    right: 2rem;
+    bottom: 2rem;
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+}

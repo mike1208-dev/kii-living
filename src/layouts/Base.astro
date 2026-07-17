@@ -93,9 +93,16 @@ const jsonLd = {
     </main>
     <Footer />
 
+    <!-- トップへ戻るボタン -->
+    <button id="to-top" class="to-top" type="button" aria-label="ページ上部へ戻る">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 19V5M5 12l7-7 7 7" />
+      </svg>
+    </button>
+
     <!-- スクロール連動の登場アニメーション（軽量・アイランド不要） -->
     <script>
-      const els = document.querySelectorAll('.reveal');
+      const els = document.querySelectorAll('.reveal, .eyebrow');
       if ('IntersectionObserver' in window && els.length) {
         const io = new IntersectionObserver(
           (entries) => {
@@ -111,6 +118,18 @@ const jsonLd = {
         els.forEach((el) => io.observe(el));
       } else {
         els.forEach((el) => el.classList.add('is-visible'));
+      }
+
+      // トップへ戻るボタン
+      const toTop = document.getElementById('to-top');
+      if (toTop) {
+        const onScrollTop = () => toTop.classList.toggle('show', window.scrollY > 420);
+        onScrollTop();
+        window.addEventListener('scroll', onScrollTop, { passive: true });
+        toTop.addEventListener('click', () => {
+          const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+        });
       }
     </script>
   </body>
