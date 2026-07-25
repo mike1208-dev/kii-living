@@ -6,9 +6,8 @@ import { company, message } from '../data/site';
 
 const rows = [
   { label: '会社名', value: `${company.name}（${company.nameEn}）` },
-  { label: '代表者', value: company.ceo },
-  { label: '設立', value: company.established },
-  { label: '資本金', value: company.capital },
+  { label: '代表取締役', value: `${company.ceo}` },
+  { label: '設立年月日', value: company.established },
   { label: '所在地', value: company.address.full },
   { label: '事業内容', value: '不動産売買・仲介／リフォーム／不動産DX／住宅ローン' },
   { label: '免許番号', value: company.license },
