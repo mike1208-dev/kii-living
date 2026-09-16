@@ -18,13 +18,13 @@ export const company = {
   // ── 連絡先 ────────────────────────────────────────
   tel: '073-488-8128',
   telHref: 'tel:0734888128',
-  email: 'info@example.com', // ※要確認
+  email: 'y.shimazaki@kii-living.com',
   businessHours: '平日 9:00〜18:00（土日祝を除く）', // ※要確認
 
   // ── 会社概要 ──────────────────────────────────────
   established: '2026年7月8日',
   ceo: '島﨑　洋子',
-  license: '宅地建物取引業免許番号 ※要確認（例：和歌山県知事（1）第00000号）',
+  license: '和歌山県知事（1）第4138号',
 
   address: {
     postal: '〒640-8402',

@@ -4,7 +4,7 @@ import PageHero from '../components/PageHero.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { company, message } from '../data/site';
 
-const rows = [
+const rows: { label: string; value: string; href?: string }[] = [
   { label: '会社名', value: `${company.name}（${company.nameEn}）` },
   { label: '代表取締役', value: `${company.ceo}` },
   { label: '設立年月日', value: company.established },
@@ -12,7 +12,8 @@ const rows = [
   { label: '事業内容', value: '不動産売買・仲介／リフォーム／不動産DX／住宅ローン' },
   { label: '免許番号', value: company.license },
   { label: '営業時間', value: company.businessHours },
-  { label: 'TEL', value: company.tel },
+  { label: 'TEL', value: company.tel, href: company.telHref },
+  { label: 'MAIL', value: company.email, href: `mailto:${company.email}` },
 ];
 ---
 
@@ -70,7 +71,13 @@ const rows = [
               <dt class="w-full sm:w-40 shrink-0 text-sm font-bold mb-1 sm:mb-0" style="color: var(--accent);">
                 {row.label}
               </dt>
-              <dd class="text-sm md:text-base" style="color: var(--text);">{row.value}</dd>
+              <dd class="text-sm md:text-base" style="color: var(--text);">
+                {row.href ? (
+                  <a href={row.href} class="underline decoration-1 underline-offset-4 transition-opacity hover:opacity-70 break-all">
+                    {row.value}
+                  </a>
+                ) : row.value}
+              </dd>
             </div>
           ))
         }
