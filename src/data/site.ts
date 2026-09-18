@@ -336,8 +336,6 @@ export type PartnerCase = {
   description: string;
   tags: string[];
   image: string;
-  /** 裏付けのない仮テキスト。本番ビルドでは出力しない。 */
-  draft?: boolean;
 };
 
 export const partnership = {
@@ -395,7 +393,6 @@ export const partnership = {
       description:
         'ビデオ通話による相談と、動画・VRを用いた内見をブラウザ完結で提供。ご来店なしで物件を比較検討でき、遠方やご多忙のお客様にもご利用いただけます。',
       tags: ['フルスタック開発', 'ビデオ通話', 'VR・動画配信'],
-      draft: true,
       image: '/images/partners/case-02.jpg',
     },
     {
@@ -404,7 +401,6 @@ export const partnership = {
       description:
         '契約書類の電子化と、権限管理を備えたドキュメント基盤を構築。押印・郵送の手間を減らし、安全かつスピーディーな契約手続きを実現しました。',
       tags: ['電子契約', 'セキュリティ設計', 'API連携'],
-      draft: true,
       image: '/images/partners/case-03.jpg',
     },
     {
@@ -413,7 +409,6 @@ export const partnership = {
       description:
         '相場・成約事例のデータを集約する基盤を整備し、根拠のある査定価格を短時間で提示できる仕組みを構築。ご提案の精度とスピードを高めています。',
       tags: ['データ基盤', 'AI・機械学習', 'データ連携'],
-      draft: true,
       // 既存の service-04.jpg をそのまま参照する（複製すると片方だけ差し替えられて食い違う）
       image: '/images/photos/service-04.jpg',
     },
@@ -423,7 +418,6 @@ export const partnership = {
       description:
         'お取引の状況をオンラインで共有できるダッシュボードを開発。次に何をすべきかが一目で分かり、お客様と担当者双方の確認の手間を軽減しました。',
       tags: ['フルスタック開発', 'ダッシュボード', 'クラウド運用'],
-      draft: true,
       image: '/images/partners/case-05.jpg',
     },
   ] satisfies PartnerCase[],

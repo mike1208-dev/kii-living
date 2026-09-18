@@ -4,10 +4,6 @@ import PageHero from '../components/PageHero.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { Icon } from 'astro-icon/components';
 import { company, dx, partnership } from '../data/site';
-
-// 裏付けのない仮テキストの事例は本番ビルドでは出力しない。
-// main へのマージがそのまま公開になるため、実績として読めるものを残さない。
-const partnerCases = partnership.cases.filter((c) => import.meta.env.DEV || !c.draft);
 ---
 
 <Base title={`不動産DX | ${company.name}`} description="オンライン相談・オンライン内見・電子契約など、テクノロジーで不動産取引をなめらかに。来店不要でスピーディーなお取引を実現します。">
@@ -137,7 +133,7 @@ const partnerCases = partnership.cases.filter((c) => import.meta.env.DEV || !c.d
       <h3 class="reveal mt-20 text-xl md:text-2xl font-bold" style="color: var(--navy);">共同開発の事例</h3>
       <div class="mt-8 grid gap-6 md:gap-8 sm:grid-cols-2">
         {
-          partnerCases.map((c, i) => (
+          partnership.cases.map((c, i) => (
             <div
               class="reveal rounded-2xl border shadow-md overflow-hidden"
               style={`border-color: var(--border); background-color: var(--bg-elevated); transition-delay: ${(i % 2) * 80}ms;`}
