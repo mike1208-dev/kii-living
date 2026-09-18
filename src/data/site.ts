@@ -322,3 +322,89 @@ export const dx = {
     '情報が可視化され、透明性の高い取引',
   ],
 };
+
+// ── 開発パートナー ZeeSpires（/dx）──────────────────────
+// 会社情報・エンジニア情報は zeespires.com の記載に基づきます（2026年9月時点）。
+// ⚠️ CASE 02〜05 はレイアウト確認用の仮テキストで、実績の裏付けがない。
+//    公開すると実在しない開発実績を掲載することになるため、実際の案件
+//    内容へ差し替えるまで本番公開しないこと。
+// ⚠️ 会社紹介・氏名・写真は先方の著作物と個人情報にあたるため、公開前に
+//    掲載許諾を得ること。
+export type PartnerCase = {
+  no: string;
+  title: string;
+  description: string;
+  tags: string[];
+};
+
+export const partnership = {
+  eyebrow: 'PARTNERSHIP',
+  title: 'シンガポールの開発パートナーと共に',
+  lead: '当社の不動産DXは、シンガポールを拠点とするソフトウェア開発会社 ZeeSpires LLC とのパートナーシップのもとで開発を進めています。',
+
+  partner: {
+    name: 'ZeeSpires',
+    country: 'シンガポール',
+    url: 'https://zeespires.com/',
+    description:
+      'ZeeSpires LLC（シンガポール）は、AIエージェント開発・データ基盤構築・フルスタック開発・ITコンサルティングを手がけるソフトウェア開発会社です。「100%シニア主導」を掲げ、平均10年以上の経験を持つエンジニアがプロジェクトを牽引しています。',
+  },
+
+  // 氏名・役職は zeespires.com/jp/engineers/ の記載に基づきます。
+  photos: [
+    {
+      src: '/images/partners/zeespires-01.png',
+      alt: 'ZeeSpires Daniel Okafor 氏',
+      caption: 'Daniel Okafor ／ Principal Full Stack Engineer',
+    },
+    {
+      src: '/images/partners/zeespires-02.png',
+      alt: 'ZeeSpires Sofia Alvarez 氏',
+      caption: 'Sofia Alvarez ／ Lead Product & UX Designer',
+    },
+    {
+      src: '/images/partners/zeespires-03.webp',
+      alt: 'ZeeSpires Aarav Mehta 氏',
+      caption: 'Aarav Mehta ／ Principal Engineer, AI & Agent Division',
+    },
+  ],
+
+  cases: [
+    {
+      no: 'CASE 01',
+      title: 'コーポレートサイトの新規構築',
+      description:
+        '本サイトを静的サイトとしてハンドコード構築。構造化データでローカル検索に最適化し、自動デプロイによりサーバー保守なしで高速・安定した公開を継続しています。',
+      tags: ['静的サイト構築', 'SEO・構造化データ', '自動デプロイ'],
+    },
+    {
+      no: 'CASE 02',
+      title: 'オンライン相談・オンライン内見基盤の開発',
+      description:
+        'ビデオ通話による相談と、動画・VRを用いた内見をブラウザ完結で提供。ご来店なしで物件を比較検討でき、遠方やご多忙のお客様にもご利用いただけます。',
+      tags: ['フルスタック開発', 'ビデオ通話', 'VR・動画配信'],
+    },
+    {
+      no: 'CASE 03',
+      title: '電子契約・書類管理の仕組みづくり',
+      description:
+        '契約書類の電子化と、権限管理を備えたドキュメント基盤を構築。押印・郵送の手間を減らし、安全かつスピーディーな契約手続きを実現しました。',
+      tags: ['電子契約', 'セキュリティ設計', 'API連携'],
+    },
+    {
+      no: 'CASE 04',
+      title: 'データに基づく査定支援の基盤構築',
+      description:
+        '相場・成約事例のデータを集約する基盤を整備し、根拠のある査定価格を短時間で提示できる仕組みを構築。ご提案の精度とスピードを高めています。',
+      tags: ['データ基盤', 'AI・機械学習', 'データ連携'],
+    },
+    {
+      no: 'CASE 05',
+      title: '取引進捗の可視化ダッシュボード',
+      description:
+        'お取引の状況をオンラインで共有できるダッシュボードを開発。次に何をすべきかが一目で分かり、お客様と担当者双方の確認の手間を軽減しました。',
+      tags: ['フルスタック開発', 'ダッシュボード', 'クラウド運用'],
+    },
+  ] satisfies PartnerCase[],
+
+};
