@@ -94,7 +94,10 @@ import { company, dx, partnership } from '../data/site';
               style={`border-color: var(--border); background-color: var(--bg-elevated); transition-delay: ${(i % 3) * 80}ms;`}
             >
               <img src={p.src} alt={p.alt} width="800" height="800" loading="lazy" decoding="async" class="w-full aspect-square object-cover" />
-              <figcaption class="px-5 py-4 text-sm" style="color: var(--text-muted);">{p.caption}</figcaption>
+              <figcaption class="px-5 py-4">
+                <span class="block text-sm font-bold" style="color: var(--navy);">{p.name}</span>
+                <span class="block mt-1 text-xs leading-relaxed" style="color: var(--text-muted);">{p.role}</span>
+              </figcaption>
             </figure>
           ))
         }

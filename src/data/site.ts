@@ -355,17 +355,20 @@ export const partnership = {
     {
       src: '/images/partners/zeespires-01.png',
       alt: 'ZeeSpires Daniel Okafor 氏',
-      caption: 'Daniel Okafor ／ Principal Full Stack Engineer',
+      name: 'Daniel Okafor',
+      role: 'Principal Full Stack Engineer',
     },
     {
       src: '/images/partners/zeespires-02.png',
       alt: 'ZeeSpires Sofia Alvarez 氏',
-      caption: 'Sofia Alvarez ／ Lead Product & UX Designer',
+      name: 'Sofia Alvarez',
+      role: 'Lead Product & UX Designer',
     },
     {
       src: '/images/partners/zeespires-03.webp',
       alt: 'ZeeSpires Aarav Mehta 氏',
-      caption: 'Aarav Mehta ／ Principal Engineer, AI & Agent Division',
+      name: 'Aarav Mehta',
+      role: 'Principal Engineer, AI & Agent Division',
     },
   ],
 
