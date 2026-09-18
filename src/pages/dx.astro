@@ -70,20 +70,36 @@ import { company, dx, partnership } from '../data/site';
         <p class="text-xs md:text-sm tracking-[0.3em] mb-4 font-semibold eyebrow" style="color: var(--accent);">{partnership.eyebrow}</p>
         <h2 class="heading" style="font-size: clamp(1.6rem, 4vw, 2.5rem);">{partnership.title}</h2>
         <p class="mt-6 text-sm md:text-base leading-relaxed" style="color: var(--text-muted);">{partnership.lead}</p>
-        <p class="mt-4 text-sm md:text-base leading-relaxed" style="color: var(--text-muted);">
-          {partnership.partner.description}
-          {partnership.partner.url && (
-            <a
-              href={partnership.partner.url}
-              target="_blank"
-              rel="noopener"
-              class="ml-1 font-semibold underline decoration-1 underline-offset-4 transition-opacity hover:opacity-70"
-              style="color: var(--accent);"
-            >
-              {partnership.partner.name}の公式サイト →
-            </a>
-          )}
-        </p>
+        <div
+          class="mt-8 flex flex-col gap-5 rounded-2xl border p-6 sm:flex-row sm:items-center sm:gap-7"
+          style="border-color: var(--border); background-color: var(--bg-elevated);"
+        >
+          <img
+            src={partnership.partner.logo}
+            alt={`${partnership.partner.name} ロゴ`}
+            width="1747"
+            height="383"
+            loading="lazy"
+            decoding="async"
+            class="h-12 w-auto shrink-0 self-start object-contain sm:self-center"
+          />
+          <div>
+            <p class="text-sm md:text-base leading-relaxed" style="color: var(--text-muted);">
+              {partnership.partner.description}
+            </p>
+            {partnership.partner.url && (
+              <a
+                href={partnership.partner.url}
+                target="_blank"
+                rel="noopener"
+                class="mt-3 inline-block font-semibold underline decoration-1 underline-offset-4 transition-opacity hover:opacity-70 break-all"
+                style="color: var(--accent);"
+              >
+                {partnership.partner.url}
+              </a>
+            )}
+          </div>
+        </div>
       </div>
 
       <div class="mt-12 grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -108,9 +124,19 @@ import { company, dx, partnership } from '../data/site';
         {
           partnership.cases.map((c, i) => (
             <div
-              class="reveal rounded-2xl border shadow-md p-6 sm:p-8"
+              class="reveal rounded-2xl border shadow-md overflow-hidden"
               style={`border-color: var(--border); background-color: var(--bg-elevated); transition-delay: ${(i % 2) * 80}ms;`}
             >
+              <img
+                src={c.image}
+                alt={c.title}
+                width="1200"
+                height="675"
+                loading="lazy"
+                decoding="async"
+                class="w-full aspect-[16/9] object-cover"
+              />
+              <div class="p-6 sm:p-8">
               <p class="text-sm font-bold tracking-widest mb-3" style="color: var(--accent);">{c.no}</p>
               <h4 class="text-lg font-bold mb-2" style="color: var(--navy);">{c.title}</h4>
               <p class="text-sm md:text-base" style="color: var(--text-muted);">{c.description}</p>
@@ -123,6 +149,7 @@ import { company, dx, partnership } from '../data/site';
                   ))}
                 </ul>
               )}
+              </div>
             </div>
           ))
         }
