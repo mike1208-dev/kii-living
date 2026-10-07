@@ -41,6 +41,7 @@
   --accent-hover: #e02c25;           /* ホバー時の少し深いレッド */
   --accent-medium: #ff8a84;          /* レッドの中間色（ボタン・リンク） */
   --accent-soft: #ffe8e6;            /* レッドの淡色（背景・アイコン地） */
+  --accent-on-soft: #9e2520;         /* accent-soft 上に文字を置く場合。accent では 2.56:1 しかなく WCAG AA に届かない */
   --accent-contrast: #ffffff;
 
   --navy: #17263f;
