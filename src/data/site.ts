@@ -101,7 +101,7 @@ export const nav = [
   { label: '事業内容', href: '/' },
   { label: '売却', href: '/sell' },
   { label: '購入', href: '/buy' },
-  { label: '物件紹介', href: '/properties' },
+  // 物件紹介は一時非公開（ページは src/pages/properties.astro に残してある）
   { label: 'DX', href: '/dx' },
   { label: '会社概要', href: '/about' },
 ] as const;
