@@ -137,14 +137,6 @@ export const strengths: Strength[] = [
   },
 ];
 
-// 実績の数字（トップページ／※要確認：実数値に差し替え）
-export const stats = [
-  { value: '1,200', unit: '件+', label: 'ご相談・お取引実績' },
-  { value: '15', unit: '年', label: '地域での実績' },
-  { value: '98', unit: '%', label: 'お客様満足度' },
-  { value: '4', unit: '事業', label: 'ワンストップ対応' },
-];
-
 // ご相談の流れ（トップページ）
 export const flow = [
   { step: 'STEP 01', title: 'お問い合わせ', description: 'お電話・メール・フォームよりお気軽にご連絡ください。ご相談は無料です。' },
