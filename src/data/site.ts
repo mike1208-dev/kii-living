@@ -101,7 +101,7 @@ export const nav = [
   { label: '事業内容', href: '/' },
   { label: '売却', href: '/sell' },
   { label: '購入', href: '/buy' },
-  { label: '物件紹介', href: '/properties' },
+  // 物件紹介は一時非公開（ページは src/pages/properties.astro に残してある）
   { label: 'DX', href: '/dx' },
   { label: '会社概要', href: '/about' },
 ] as const;
@@ -135,14 +135,6 @@ export const strengths: Strength[] = [
     description:
       'オンライン相談や電子契約などデジタルを活用し、わかりやすく・安心できる取引体験をお届けします。',
   },
-];
-
-// 実績の数字（トップページ／※要確認：実数値に差し替え）
-export const stats = [
-  { value: '1,200', unit: '件+', label: 'ご相談・お取引実績' },
-  { value: '15', unit: '年', label: '地域での実績' },
-  { value: '98', unit: '%', label: 'お客様満足度' },
-  { value: '4', unit: '事業', label: 'ワンストップ対応' },
 ];
 
 // ご相談の流れ（トップページ）
