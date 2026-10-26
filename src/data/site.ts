@@ -19,7 +19,7 @@ export const company = {
   tel: '073-488-8128',
   telHref: 'tel:0734888128',
   email: 'y.shimazaki@kii-living.com',
-  businessHours: '平日 9:00〜18:00（土日祝を除く）', // ※要確認
+  businessHours: '10:00〜19:00（水曜日を除く）',
 
   // ── 会社概要 ──────────────────────────────────────
   established: '2026年7月8日',
